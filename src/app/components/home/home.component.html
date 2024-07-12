@@ -1,0 +1,57 @@
+<main class="container">
+    <div class="container-item w-full">
+        <table mat-table [dataSource]="notasTabela" class="">
+            <ng-container matColumnDef="data">
+                <th mat-header-cell *matHeaderCellDef>Data</th>
+                <td mat-cell *matCellDef="let item">{{ item.data | date: 'dd/MM/yyyy' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="numero">
+                <th mat-header-cell *matHeaderCellDef>Número NF</th>
+                <td mat-cell *matCellDef="let item">{{ item.numeronf }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="tipoItem">
+                <th mat-header-cell *matHeaderCellDef>tipoItem</th>
+                <td mat-cell *matCellDef="let item">{{ item.tipoItem }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="qtde">
+                <th mat-header-cell *matHeaderCellDef>Qtde</th>
+                <td mat-cell *matCellDef="let item">{{ item.quantidade }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="notadevolucao">
+                <th mat-header-cell *matHeaderCellDef>NF Devolução</th>
+                <td mat-cell *matCellDef="let item">{{ item.notaDevolucao }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="opcoes">
+                <th mat-header-cell *matHeaderCellDef> Opções</th>
+                <td mat-cell *matCellDef="let item">
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="abreDetalhes(item)">
+                            <mat-icon color="primary">cloud_download</mat-icon>
+                            <span>Detalhes</span>
+                        </button>
+                        <button mat-menu-item (click)="editarNota(item)">
+                            <mat-icon color="primary">edit</mat-icon>
+                            <span>Editar</span>
+                        </button>
+                        <button mat-menu-item (click)="deleteNota(item)">
+                            <mat-icon color="warn">delete</mat-icon>
+                            <span>Excluir</span>
+                        </button>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+            <tr mat-row *matRowDef="let linha; columns: colunas;"></tr>
+        </table>
+    </div>
+</main>

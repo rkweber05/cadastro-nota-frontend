@@ -1,0 +1,41 @@
+<div class="flex flex-col flex-auto">
+    <div>
+        <!--ngmodel = seta e retorna o valor-->
+        <form [formGroup]="formCadastro" class="p-5" (submit)="salvar()">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-3">
+                <mat-form-field>
+                    <mat-label>Data de emissão</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dataEmissao">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Número da NF</mat-label>
+                    <input matInput type="text" formControlName="numeroNf">
+                </mat-form-field>
+
+                <mat-form-field class="md:col-span-2 lg:col-span-2">
+                    <mat-label>Tipo do Item</mat-label>
+                    <input matInput type="text" formControlName="tipoItem">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Quantidade</mat-label>
+                    <input matInput type="number" formControlName="qtde" min="1">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Nota de retorno</mat-label>
+                    <input matInput type="text" formControlName="nfRetorno">
+                </mat-form-field>
+            </div>
+
+            <div class="flex content-center">
+                <button mat-flat-button type="submit" color="primary" [disabled]="this.formCadastro.invalid">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

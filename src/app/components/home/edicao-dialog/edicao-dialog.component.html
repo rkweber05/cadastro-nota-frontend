@@ -1,0 +1,28 @@
+<div class="p-4 w-full">
+    <mat-dialog-content class="grid grid-cols-1">
+        <mat-form-field class="w-full">
+            <input matInput
+                   placeholder="Nota devolução"
+                   #notaDevolucao
+                   type="text">
+        </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="grid grid-cols-2">
+        <ng-container>
+            <button [matDialogClose]="'cancelado'"
+                    mat-stroked-button>
+                Cancelar
+            </button>
+        </ng-container>
+
+        <ng-container>
+            <button mat-flat-button
+                    color="primary"
+                    (click)="salvar()">
+                Salvar
+            </button>
+        </ng-container>
+    </mat-dialog-actions>
+</div>
+

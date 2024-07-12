@@ -1,0 +1,28 @@
+<div class="p-4">
+    <div class="grid grid-cols-1">
+        <div>
+            <span class="font-bold">Número NF: </span>
+            <span>{{data.numeronf}}</span>
+        </div>
+        <mat-divider class="my-2"></mat-divider>
+        <div>
+            <span class="font-bold">Data de emissão: </span>
+            <span>{{data.data | date: 'dd/MM/yyyy'}}</span>
+        </div>
+        <mat-divider class="my-2"></mat-divider>
+        <div>
+            <span class="font-bold">Quantidade: </span>
+            <span>{{data.quantidade}}</span>
+        </div>
+        <mat-divider class="my-2"></mat-divider>
+        <div>
+            <span class="font-bold">Tipo Item: </span>
+            <span>{{data.tipoItem}}</span>
+        </div>
+        <mat-divider class="my-2"></mat-divider>
+        <div>
+            <span class="font-bold">NF Devolução: </span>
+            <span>{{data.notaDevolucao}}</span>
+        </div>
+    </div>
+</div>
